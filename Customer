@@ -1,0 +1,47 @@
+class Customer:
+    def __init__(self):
+        self._name = ""
+        self._CCnumber = ""
+        self._CCSecurityCode = ""
+        self._DCnumber = ""
+        self.DCSecurityCode = ""
+
+    def inputCardInfo(self):
+        CCnumber = float(print("Enter credit card number: "))
+        self._CCnumber = CCnumber
+        ThreeDigitCode = float(print("Enter 3-digit security code: "))
+        self._CCSecurityCode = ThreeDigitCode
+        DebitCardNumber = float(print("Enter debit card number: "))
+        self._DCnumber = DebitCardNumber
+        FourDigitPin = float(print("Enter 4-digit PIN: "))
+        self.DCSecurityCode = FourDigitPin
+        print("Registration completed")
+
+    def verifyCreditCard(self):
+        print("Please choose payment method.")
+        choice = int(print("Please enter 1 for credit card, 2 for debit card: "))
+        if choice == 1:
+            code = int(print("Please enter 3-digit security code: "))
+            if code != self._CCSecurityCode:
+                self._CCSecurityCode = "False"
+            elif code == self._CCSecurityCode:
+                self._CCSecurityCode = "True"
+
+    def verifyDebitCard(self):
+        print("Please choose payment method.")
+        choice = int(print("Please enter 1 for credit card, 2 for debit card: "))
+        if choice == 2:
+            code = int(print("Please enter 4-digit PIN: "))
+            if code != self._DCnumber:
+                self._DCnumber = "False"
+            elif code == self._DCnumber:
+                self._DCnumber = "True"
+
+    def creditCardLastFour(self):
+        last4 = self._CCnumber[-4:]
+
+    def debitCardLastFour(self):
+        last4 = self._DCnumber[-4:]
+
+
+
