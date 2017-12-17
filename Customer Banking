@@ -1,0 +1,74 @@
+from Customer import Customer
+
+def main():
+    print("Welcome to Wake-Mart. Please register.")
+    customer = input("Enter customer name: ")
+    customer.inputCardInfo()
+    customer.scanPrices()
+    customer.scanCoupons()
+
+
+    input_file = open('price_list.txt', 'r')
+    empty_str = ''
+    price =input_file.readline()
+    while price != empty_str:
+        print(price.strip('\n'))
+        price = input_file.readline()
+    price = dict()
+
+    return price
+
+    input_file = open('coupon_list.txt', 'r')
+    empty_str = ''
+    coupon =input_file.readline()
+    while coupon != empty_str:
+        print(coupon.strip('\n'))
+        coupon = input_file.readline()
+    coupon = dict()
+
+    return coupon
+
+def scanPrices():
+    input_file = open('price_list.txt', 'r')
+    empty_str = ''
+    price =input_file.readline()
+    while price != empty_str:
+        print(price.strip('\n'))
+        price = input_file.readline()
+    price = dict()
+    for price in input_file:
+        target = input("Enter 4-digit item code [or 9999 to stop]: ")
+        if target in price:
+            print("Item Found. Price is: ", price[target])
+        elif target not in price:
+            print("Item not found")
+
+def scanCoupons():
+    input_file = open('coupon_list.txt', 'r')
+    empty_str = ''
+    coupon =input_file.readline()
+    while coupon != empty_str:
+        print(coupon.strip('\n'))
+        coupon = input_file.readline()
+    coupon = dict()
+    for coupon in input_file:
+        target = input("Enter 4-digit item code [or 9999 to stop]: ")
+        if target in coupon:
+            print("Item Found. Coupon is: ", coupon[target])
+        elif target not in coupon:
+            print("Item not found")
+
+def makePayment():
+    customer.verifyCreditCard()
+    if code = "False":
+        print("Security code incorrect. Payment rejected.")
+    elif code = "True":
+        print("Last 4 digits of card: ", self.CCnumber)
+    customer.verifyDebitCard()
+    if code = "False":
+        print("PIN incorrect. Payment rejected.")
+    elif code = "True":
+        print("Last 4 digits of card: ", self.CCnumber)
+
+
+    input_file.close()
